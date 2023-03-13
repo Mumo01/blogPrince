@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card">
-    <div class="icons">
+    <div v-show="editPost" class="icons">
         <div class="icon">
             <Edit class="edit" />
         </div>
@@ -32,6 +32,11 @@ export default {
         Arrow,
         Edit,
         Delete,
+    },
+    computed: {
+      editPost(){
+        return this.$store.state.editPost;
+      }
     }
 
 }
@@ -66,6 +71,7 @@ export default {
       border-radius: 50%;
       background-color: #fff;
       transition: 0.5s ease all;
+      animation: shake 5.0s infinite;
       &:hover {
         background-color: #fff5d7;
         .edit,
@@ -74,6 +80,19 @@ export default {
             fill: #fff;
           }
         }
+        @keyframes shake {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-5px, 0); }
+  20% { transform: translate(5px, 0); }
+  30% { transform: translate(-5px, 0); }
+  40% { transform: translate(5px, 0); }
+  50% { transform: translate(-5px, 0); }
+  60% { transform: translate(5px, 0); }
+  70% { transform: translate(-5px, 0); }
+  80% { transform: translate(5px, 0); }
+  90% { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
       }
       &:nth-child(1) {
         margin-right: 8px;

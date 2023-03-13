@@ -3,6 +3,7 @@
     <div class="app">
       <Navigation />
       <router-view />
+      
       <Footer />
     </div>
   </div>

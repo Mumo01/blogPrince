@@ -1,14 +1,17 @@
 <template>
   <header>
     <nav class="container"> 
+        <router-link :to="{ name: 'Home'}">
+        <img src="../assets/logo.png" class="logo"> </router-link>
         <div class="branding">
             <!-- LINKS BACK TO THE HOME PAGE -->
+          
             <router-link class="header" :to="{ name: 'Home'}">blogPrince</router-link> 
         </div>
         <div class="nav-links"> 
             <ul v-show="!mobile"> 
-                <router-link class="link" to ="#"> Home </router-link>
-                <router-link class="link" to ="#"> Blogs</router-link>
+                <router-link class="link" :to ="{ name: 'Home'}"> Home </router-link>
+                <router-link class="link"  :to ="{ name: 'Blogs'}"> Blogs</router-link>
                 <router-link class="link" to ="#"> Create Post </router-link>
                 <router-link class="link" to ="#"> Login </router-link>
             </ul>
@@ -18,8 +21,8 @@
            <menuIcon v-on:click.native="toggleMobileNav" class="menu-icon" v-show="mobile"/>  
         <transition name="mobile-nav">
             <ul class="mobile-nav" v-show="mobileNav">
-                <router-link class="link" to ="#"> Home </router-link>
-                <router-link class="link" to ="#"> Blogs</router-link>
+                <router-link class="link" :to ="{ name: 'Home'}"> Home </router-link>
+                <router-link class="link" :to ="{ name: 'Blogs'}"> Blogs</router-link>
                 <router-link class="link" to ="#"> Create Post </router-link>
                 <router-link class="link" to ="#"> Login </router-link>
             </ul>
@@ -90,6 +93,12 @@ header {
     }
   }
 
+  .logo {
+        display: flex;
+        width: auto;
+        height: 40px;       
+        
+    }
     nav {
     display: flex;
     padding: 25px 0;
@@ -97,6 +106,7 @@ header {
     .branding {
         display: flex;
         align-items: center;
+        padding-left: 25px;
     
 
     .header {
@@ -105,7 +115,10 @@ header {
         color: #000;
         text-decoration: none;
     }
+    
 }
+
+    
         .nav-links {
             position: relative;
             display: flex;

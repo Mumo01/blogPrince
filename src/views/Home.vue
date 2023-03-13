@@ -6,7 +6,7 @@
     <div class="container"> 
       <h3> View More Recent Blogs </h3>
       <div class="blog-cards"> 
-        <BlogCards :post="post" v-for="(post, index) in sampleBlogCards" :key="index" />
+        <BlogCard :post="post" v-for="(post, index) in sampleBlogCards" :key="index" />
       </div>
     </div>
    </div>
@@ -24,11 +24,11 @@
 <script>
 import Arrow from '../assets/Icons/arrow-right-light.svg';
 import BlogPost from '../components/BlogPost';
-import BlogCards from '../components/BlogCard';
+import BlogCard from '../components/BlogCard';
 
 export default {
   name: "Home",
-  components: { BlogPost, BlogCards, Arrow },
+  components: { BlogPost, BlogCard, Arrow },
   data() {
     return {
       welcomeScreen: {
@@ -50,14 +50,14 @@ export default {
           blogCoverPhoto: "designed-for-everyone",
         },
       ],
-      sampleBlogCards: [
-        { blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate: "May 1, 2021"},
-        { blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate: "May 1, 2021"},
-        { blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "May 1, 2021"},
-        { blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "May 1, 2021"},
-      ],
+
     };
   },
+  computed: {
+    sampleBlogCards() {
+      return this.$store.state.sampleBlogCards
+    }
+  }
   
 };
 </script>
@@ -66,7 +66,7 @@ export default {
     background-image: url('../assets/backg.jpg');
   background-position: center;
   background-size: cover;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: (255, 255, 255, 0.1);
   
   h3 {
     font-weight: 600;
@@ -116,10 +116,6 @@ export default {
         text-align: initial;
         font-size: 40px;
       }
-
-   
-   
-  
     }
   }
 }
