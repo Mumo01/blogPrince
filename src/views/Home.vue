@@ -13,7 +13,7 @@
    <div class="updates">
     <div class="container">
       <h2> Never Miss A Post. Register for your free account today!</h2>
-      <router-link class="router-button" to="#">
+      <router-link class="router-button" :to="{ name: 'Register' }">
         Register For blogPrince <Arrow class="arrow arrow-light"/>
       </router-link>
     </div>

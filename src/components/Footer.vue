@@ -22,14 +22,14 @@
         <div class="col-2">
           <ul>
             <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-            <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
-            <!-- <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link>
-            <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login In / Register</router-link> -->
+            <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link> 
+            <!-- <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link> -->
+          <router-link class="link" :to="{ name: 'Login' }">Login</router-link> 
           </ul>
         </div>
       </div>
       <div class="right">
-        <p>Copyright 2023 All Rights Reserved</p>
+        <p>Copyright © 2023 All Rights Reserved</p>
       </div>
     </div>
   </footer>

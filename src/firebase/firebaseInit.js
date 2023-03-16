@@ -2,16 +2,16 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBTdfZjoLaCE1hKCLPukTFh2Ogw_OzFm38",
-    authDomain: "blogprince-1a52e.firebaseapp.com",
-    projectId: "blogprince-1a52e",
-    storageBucket: "blogprince-1a52e.appspot.com",
-    messagingSenderId: "1085760491305",
-    appId: "1:1085760491305:web:ffac4405b7e45b72f57138"
+  apiKey: "AIzaSyA9A37zUH8h6NpOQcQJQfR55jRzpDuYHHU",
+  authDomain: "blogprince-4a010.firebaseapp.com",
+  projectId: "blogprince-4a010",
+  storageBucket: "blogprince-4a010.appspot.com",
+  messagingSenderId: "823051496446",
+  appId: "1:823051496446:web:e4282865a3c446a4cdaeaf"
   };
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-  export (timestamp);
+  export { timestamp };
   export default firebaseApp.firestore();
