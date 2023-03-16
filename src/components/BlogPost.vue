@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-wrapper no-user">
+  <div class="blog-wrapper" :class=" {'no-user': !user}"> 
     <div class="blog-content"> 
     <div>
         <h2 v-if="post.welcomeScreen"> {{ post.title }} </h2>
@@ -28,7 +28,14 @@ export default {
     props: ["post"],
     components: {
         Arrow,
-    }
+    },
+    computed: {
+        //to toggle when to show a particular item depending whether the user is logged in or not.
+        user() {
+            return this.$store.state.user;
+        }
+    },
+
 };
 </script>
 
