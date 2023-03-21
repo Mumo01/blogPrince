@@ -12,7 +12,7 @@
             <ul v-show="!mobile"> 
                 <router-link class="link" :to ="{ name: 'Home'}"> Home </router-link>
                 <router-link class="link"  :to ="{ name: 'Blogs'}"> Blogs</router-link>
-                <router-link class="link" to ="#"> Create Post </router-link>
+                <router-link class="link" v-if="admin" to ="#"> Create Post </router-link>
                 <router-link class="link" v-if="!user" :to ="{ name: 'Login' }"> Login </router-link>
             
             </ul>
@@ -34,7 +34,7 @@
                                 <p>Profile</p>
                             </router-link>
                         </div>
-                        <div class="option">
+                        <div v-if="admin" class="option">
                             <router-link class="option" :to="{ name: 'Admin' }">
                                 <adminIcon class="icon" />
                                 <p>Admin</p>
@@ -57,8 +57,8 @@
             <ul class="mobile-nav" v-show="mobileNav">
                 <router-link class="link" :to ="{ name: 'Home'}"> Home </router-link>
                 <router-link class="link" :to ="{ name: 'Blogs'}"> Blogs</router-link>
-                <router-link class="link" to ="#"> Create Post </router-link>
-                <router-link class="link" :to ="{ name: 'Login' }" v-if="!user" > Login </router-link>
+                <router-link v-if="admin" class="link" to ="#"> Create Post </router-link>
+                <router-link v-if="!user" class="link" :to ="{ name: 'Login' }"> Login </router-link>
             </ul>
         </transition>
   </header>
@@ -123,14 +123,18 @@ export default {
 
         signOut() {
             firebase.auth().signOut();
-            window.location.reload();
+            window.location.reload('/home');
+            
         }
     },
     computed: {
         //to toggle when to show a particular item depending whether the user is logged in or not.
         user() {
             return this.$store.state.user;
-        }
+        },
+        admin() {
+            return this.$store.state.profileAdmin;
+        },
     },
 };
 </script>

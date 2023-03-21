@@ -23,7 +23,7 @@
           <ul>
             <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
             <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link> 
-            <!-- <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link> -->
+            <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link> 
           <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login</router-link> 
           </ul>
         </div>
@@ -54,7 +54,10 @@ export default {
         //to toggle when to show a particular item depending whether the user is logged in or not.
         user() {
             return this.$store.state.user;
-        }
+        },
+        admin() {
+            return this.$store.state.profileAdmin;
+        },
     },
 };
 </script>
