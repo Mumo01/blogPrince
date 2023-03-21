@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper">
-    <div class="app">
+    <div class="app" v-if="this.$store.state.postLoaded">
       <Navigation v-if="!navigation"/>
       <router-view />
       <Footer v-if="!navigation"/>
@@ -30,8 +30,9 @@ export default {
         this.$store.dispatch("getCurrentUser", user);
        
       }
-    })
+    });
     this.checkRoute();
+    this.$store.dispatch("getPost");
     },
   mounted() {},
   methods: {
@@ -48,6 +49,7 @@ export default {
   watch: {
     $route() {
       this.checkRoute();
+     
     }
   },
 };
